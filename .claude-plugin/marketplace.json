@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "prompt-cause",
+  "name": "promptcause",
   "description": "The Prompt Cause marketplace — a curated catalog of AI skills for Claude Code, Cursor, Copilot, Codex, Gemini, and more.",
   "owner": {
     "name": "Paulo Henrique Andrade Alves"

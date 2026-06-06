@@ -16,7 +16,7 @@ I kept seeing great Claude Code skills scattered across random repos, each with 
 
 What makes it different from "a list of links":
 
-- **One source.** `/plugin marketplace add PhAlves23/prompt-cause-marketplace`, then `/plugin install <skill>`. Done.
+- **One source.** `/plugin marketplace add PhAlves23/promptcause-marketplace`, then `/plugin install <skill>`. Done.
 - **Curated + security-pinned.** Every skill is reviewed before listing, and external skills are pinned to a reviewed commit `sha` — so a contributor changing their repo later can't silently ship unreviewed code to users. CI rejects any unpinned external source.
 - **Open to contributions.** You keep your skill in your own repo; we just list it (pinned). There's a template and a clear submission flow.
 
@@ -24,7 +24,7 @@ First skill in the catalog is **prompt-engineering** (rewrites a raw draft into 
 
 Also works in GitHub Copilot CLI, and each skill documents native install for Cursor, Windsurf, Codex, Gemini, and OpenCode.
 
-MIT, contributions welcome: https://github.com/PhAlves23/prompt-cause-marketplace
+MIT, contributions welcome: https://github.com/PhAlves23/promptcause-marketplace
 
 Happy to answer questions or take suggestions on what skills to add next.
 
@@ -35,7 +35,7 @@ Happy to answer questions or take suggestions on what skills to add next.
 **1/** I open-sourced **Prompt Cause** — a curated marketplace of AI skills for Claude Code.
 
 Add one marketplace, install any skill:
-`/plugin marketplace add PhAlves23/prompt-cause-marketplace`
+`/plugin marketplace add PhAlves23/promptcause-marketplace`
 
 🧵
 
@@ -48,7 +48,7 @@ Add one marketplace, install any skill:
 
 **4/** First skill: prompt-engineering (turns a rough draft into a production-grade prompt). More coming — submissions open.
 
-MIT: https://github.com/PhAlves23/prompt-cause-marketplace
+MIT: https://github.com/PhAlves23/promptcause-marketplace
 
 ---
 
@@ -65,7 +65,7 @@ Design points:
 - **Security-pinned listings.** External skills are pinned to a reviewed commit `sha`; post-review changes in a contributor's repo don't reach users until a new `sha` is reviewed. CI rejects unpinned external sources. Repo is hardened too (least-privilege CI, actions pinned by sha, Dependabot, branch protection).
 - **Open contribution.** Keep your skill in your repo; submit a PR adding a pinned catalog entry.
 
-MIT: https://github.com/PhAlves23/prompt-cause-marketplace
+MIT: https://github.com/PhAlves23/promptcause-marketplace
 
 Feedback welcome — especially on the review/pinning model.
 
@@ -79,7 +79,7 @@ Instead of hunting down individual repos, you add one marketplace and install an
 
 It's MIT-licensed, open to community contributions, and the first skill (prompt-engineering) is already live. If you build with LLMs, I'd love your feedback.
 
-https://github.com/PhAlves23/prompt-cause-marketplace
+https://github.com/PhAlves23/promptcause-marketplace
 
 ---
 

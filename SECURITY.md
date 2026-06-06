@@ -13,7 +13,7 @@ This marketplace lists skills that run **inside other people's AI agents**. That
 
 If you find a problem — a malicious or compromised skill in the catalog, or an issue with this repo's tooling — report it privately first:
 
-1. Use GitHub's **[Report a vulnerability](https://github.com/PhAlves23/prompt-cause-marketplace/security/advisories/new)** (Security → Advisories), or
+1. Use GitHub's **[Report a vulnerability](https://github.com/PhAlves23/promptcause-marketplace/security/advisories/new)** (Security → Advisories), or
 2. Open a minimal public issue asking the maintainer to make private contact, without disclosing exploit details.
 
 Please do **not** post a working exploit publicly before it's addressed. Include: what's affected, steps to reproduce, and the impact you foresee.
