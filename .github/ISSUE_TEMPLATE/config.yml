@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question / discussion
+    url: https://github.com/PhAlves23/prompt-cause-marketplace/discussions
+    about: For questions about submitting or using skills, prefer Discussions.

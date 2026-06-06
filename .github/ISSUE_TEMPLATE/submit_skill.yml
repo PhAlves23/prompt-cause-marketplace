@@ -1,0 +1,47 @@
+name: Submit a skill
+description: Propose a skill to add to the Prompt Cause catalog
+title: "[skill] "
+labels: ["skill-submission"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Skill name
+      description: kebab-case, e.g. prompt-engineering
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Skill repository URL
+      description: Public repo where the skill lives (Path A). Leave blank if contributing inline.
+      placeholder: https://github.com/you/your-repo
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: What it does and when to use it
+      description: One or two clear sentences. Include the trigger phrases that should activate it.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options: [productivity, development, writing, research, design, data, other]
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Quality & safety checklist
+      options:
+        - label: SKILL.md has valid frontmatter (name + trigger-rich description)
+          required: true
+        - label: I tested it in at least one agent and it works
+          required: true
+        - label: No secrets, no malicious/deceptive instructions, no covert tool/URL calls
+          required: true
+        - label: My repo has a LICENSE (Path A)
+          required: false

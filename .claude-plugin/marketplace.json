@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "prompt-cause",
+  "description": "The Prompt Cause marketplace — a curated catalog of AI skills for Claude Code, Cursor, Copilot, Codex, Gemini, and more.",
+  "owner": {
+    "name": "Paulo Henrique Andrade Alves"
+  },
+  "plugins": [
+    {
+      "name": "prompt-engineering",
+      "description": "Optimizes and rewrites prompts using proven prompt engineering techniques: draft diagnosis, canonical structure, technique selection by task type and target model.",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PhAlves23/prompt-engineering-skill.git",
+        "path": "plugins/prompt-engineering",
+        "ref": "main"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/PhAlves23/prompt-engineering-skill"
+    }
+  ]
+}

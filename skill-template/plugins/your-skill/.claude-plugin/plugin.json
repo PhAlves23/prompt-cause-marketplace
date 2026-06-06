@@ -1,0 +1,16 @@
+{
+  "name": "your-skill",
+  "displayName": "Your Skill",
+  "description": "One clear sentence: what this skill does and when to use it.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Your Name"
+  },
+  "homepage": "https://github.com/you/your-repo",
+  "repository": "https://github.com/you/your-repo",
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "claude"
+  ]
+}

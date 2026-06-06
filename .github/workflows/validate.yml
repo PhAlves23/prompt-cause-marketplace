@@ -1,0 +1,67 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          set -e
+          fail=0
+          while IFS= read -r f; do
+            python3 -m json.tool "$f" > /dev/null 2>&1 && echo "ok   $f" || { echo "FAIL $f"; fail=1; }
+          done < <(find . -name '*.json' -not -path './.git/*')
+          exit $fail
+
+      - name: Validate marketplace catalog
+        run: |
+          python3 - <<'PY'
+          import json, sys, re
+          mp = json.load(open(".claude-plugin/marketplace.json"))
+          assert mp.get("name"), "marketplace needs a name"
+          assert isinstance(mp.get("plugins"), list) and mp["plugins"], "no plugins listed"
+          names = set()
+          fail = False
+          for p in mp["plugins"]:
+              n = p.get("name", "")
+              if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", n):
+                  print(f"FAIL bad/missing plugin name: {n!r}"); fail = True
+              if n in names:
+                  print(f"FAIL duplicate plugin name: {n}"); fail = True
+              names.add(n)
+              if not p.get("description"):
+                  print(f"FAIL [{n}] missing description"); fail = True
+              src = p.get("source")
+              ok_src = isinstance(src, str) or (isinstance(src, dict) and src.get("source") in {"url","github","git-subdir"})
+              if not ok_src:
+                  print(f"FAIL [{n}] invalid source: {src!r}"); fail = True
+              # inline sources must exist
+              if isinstance(src, str):
+                  import os
+                  if not os.path.isdir(src.lstrip("./")):
+                      print(f"FAIL [{n}] inline source path not found: {src}"); fail = True
+          print(f"checked {len(mp['plugins'])} plugin(s)")
+          sys.exit(1 if fail else 0)
+          PY
+
+      - name: Validate inline skills (if any)
+        run: |
+          python3 - <<'PY'
+          import glob, sys
+          fail = False
+          for skill in glob.glob("plugins/*/skills/*/SKILL.md"):
+              t = open(skill, encoding="utf-8").read()
+              if not t.startswith("---") or "name:" not in t.split("---",2)[1] or "description:" not in t.split("---",2)[1]:
+                  print(f"FAIL {skill}: missing frontmatter name/description"); fail = True
+              else:
+                  print(f"ok   {skill}")
+          sys.exit(1 if fail else 0)
+          PY
