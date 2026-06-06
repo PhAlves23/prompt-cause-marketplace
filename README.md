@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="assets/banner.png" alt="Prompt Cause — a curated catalog of AI skills for Claude Code and other agents" width="100%">
+
+<br><br>
+
 # Prompt Cause — Skill Marketplace
 
 **A curated catalog of AI skills for Claude Code and other agents.**

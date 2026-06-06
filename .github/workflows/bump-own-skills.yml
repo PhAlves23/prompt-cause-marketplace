@@ -1,0 +1,45 @@
+name: bump-own-skills
+
+# Advances the pinned sha of YOUR OWN skills (under the owner below) to their
+# latest commit, then opens a PR for review. Third-party skills are never
+# touched here — their sha changes only via a manually reviewed PR.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1" # Mondays 09:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  OWNER: PhAlves23
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Bump owned skills to latest sha
+        run: python3 scripts/bump_skill.py --owned "$OWNER"
+
+      - name: Open PR if anything changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- .claude-plugin/marketplace.json; then
+            echo "No sha changes — nothing to open."
+            exit 0
+          fi
+          BRANCH="bump/own-skills-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add .claude-plugin/marketplace.json
+          git commit -m "chore: bump owned skills to latest reviewed sha"
+          git push -u origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "chore: bump owned skills to latest sha" \
+            --body "Automated bump of skills owned by **$OWNER** to their latest commit sha. Review the diff and merge if the upstream changes are good. Third-party skills are not touched."
