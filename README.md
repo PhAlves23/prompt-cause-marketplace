@@ -10,7 +10,7 @@
 Add one marketplace, install any skill.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Validate](https://github.com/PhAlves23/prompt-cause-marketplace/actions/workflows/validate.yml/badge.svg)](https://github.com/PhAlves23/prompt-cause-marketplace/actions/workflows/validate.yml)
+[![Validate](https://github.com/PhAlves23/promptcause-marketplace/actions/workflows/validate.yml/badge.svg)](https://github.com/PhAlves23/promptcause-marketplace/actions/workflows/validate.yml)
 [![Skills](https://img.shields.io/badge/skills-1-0E4A35.svg)](#catalog)
 [![Security: sha-pinned](https://img.shields.io/badge/security-sha--pinned-C25B36.svg)](SECURITY.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -53,15 +53,15 @@ Why a marketplace instead of one repo per skill?
 
 ### Claude Code
 ```
-/plugin marketplace add PhAlves23/prompt-cause-marketplace
+/plugin marketplace add PhAlves23/promptcause-marketplace
 /plugin install <skill-name>
 ```
 Restart Claude Code, then use the skill (e.g. say "improve this prompt" for `prompt-engineering`).
 
 ### GitHub Copilot CLI
 ```bash
-copilot plugin marketplace add PhAlves23/prompt-cause-marketplace
-copilot plugin install <skill-name>@prompt-cause
+copilot plugin marketplace add PhAlves23/promptcause-marketplace
+copilot plugin install <skill-name>@promptcause
 ```
 
 > For **Cursor, Windsurf, Codex, Gemini, and OpenCode**, each skill's own repo ships native install instructions — see the [catalog](#catalog) and [Using skills in other tools](#using-skills-in-other-tools).
@@ -140,7 +140,7 @@ Every listing is reviewed and pinned to a specific reviewed commit, so post-revi
 <details>
 <summary><b>How do I remove a skill or the marketplace?</b></summary>
 
-`/plugin uninstall <skill-name>` removes a skill. `/plugin marketplace remove prompt-cause` removes the catalog.
+`/plugin uninstall <skill-name>` removes a skill. `/plugin marketplace remove promptcause` removes the catalog.
 </details>
 
 <details>
@@ -164,7 +164,7 @@ Skills are designed to be lean: a small always-on footprint (the description + t
 ## Repository structure
 
 ```
-prompt-cause-marketplace/
+promptcause-marketplace/
 ├── .claude-plugin/marketplace.json   # the catalog (skills + pinned sources)
 ├── plugins/                          # inline skills (Path B), if any
 ├── skill-template/                   # copy this to start a new skill
@@ -186,7 +186,7 @@ prompt-cause-marketplace/
 - [ ] Automated source-resolves check in CI (verify each pinned `sha` exists upstream)
 - [ ] A simple website listing the catalog
 
-Have an idea? Open a [discussion](https://github.com/PhAlves23/prompt-cause-marketplace/discussions).
+Have an idea? Open a [discussion](https://github.com/PhAlves23/promptcause-marketplace/discussions).
 
 ## License
 
