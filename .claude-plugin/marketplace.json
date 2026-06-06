@@ -13,7 +13,8 @@
         "source": "git-subdir",
         "url": "https://github.com/PhAlves23/prompt-engineering-skill.git",
         "path": "plugins/prompt-engineering",
-        "ref": "main"
+        "ref": "main",
+        "sha": "01e1745060f06404d5a183a3082d1ca02ef19020"
       },
       "category": "productivity",
       "homepage": "https://github.com/PhAlves23/prompt-engineering-skill"

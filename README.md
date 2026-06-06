@@ -48,6 +48,8 @@ This repository is the **marketplace** — a catalog (`/.claude-plugin/marketpla
 
 Either way, users add a single marketplace and install skills individually. You always install only what you want — nothing is forced.
 
+**Security:** externally-hosted skills are pinned to a reviewed commit `sha`. A contributor can change their own repo freely, but those changes don't reach users here until a new `sha` is reviewed and merged. See [Versioning & security](CONTRIBUTING.md#versioning--security).
+
 ## Contributing a skill
 
 We welcome community skills. There are two paths:

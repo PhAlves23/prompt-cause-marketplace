@@ -33,7 +33,7 @@ Use [`skill-template/`](skill-template/) as your starting point.
 
 1. Build your skill in your own repo. The skill must live at a path containing `.../skills/<name>/SKILL.md`, with a plugin manifest at `<plugin-dir>/.claude-plugin/plugin.json`. (Copy the layout from `skill-template/`.)
 2. Make your repo public and tag a release.
-3. Open a PR here adding an entry to `.claude-plugin/marketplace.json`:
+3. Open a PR here adding an entry to `.claude-plugin/marketplace.json`. **Externally-hosted skills must be pinned to a commit `sha`** (see [Versioning & security](#versioning--security) below):
    ```json
    {
      "name": "your-skill",
@@ -42,14 +42,32 @@ Use [`skill-template/`](skill-template/) as your starting point.
        "source": "git-subdir",
        "url": "https://github.com/you/your-repo.git",
        "path": "plugins/your-skill",
-       "ref": "main"
+       "ref": "main",
+       "sha": "<full 40-char commit sha you want reviewed>"
      },
      "category": "productivity",
      "homepage": "https://github.com/you/your-repo"
    }
    ```
-   (If your repo *is* the plugin — `plugin.json` at the root — use `"source": {"source": "github", "repo": "you/your-repo"}` instead.)
-4. Fill in the PR checklist. CI validates the JSON and that your source resolves.
+   Get the sha with `git rev-parse HEAD` in your repo (or copy it from the commit page on GitHub).
+4. Fill in the PR checklist. CI validates the JSON, that every external source is pinned to a `sha`, and that the source resolves.
+
+## Versioning & security
+
+This is the most important rule in the project, so read it carefully.
+
+When the marketplace lists a skill from **your** repository, it pins the exact commit (`sha`) that the maintainer reviewed. This protects users:
+
+- You can keep changing your own repo freely — it's yours.
+- But your changes **do not reach this marketplace's users** until a new `sha` is reviewed and merged here. The listed `sha` is frozen at the audited commit.
+- This prevents a skill that was safe at review time from later shipping malicious or broken code to users.
+
+**To publish an update to your skill:**
+1. Make your changes in your repo and note the new commit `sha`.
+2. Open a PR here changing only the `sha` (and `description`/version if relevant).
+3. The maintainer re-reviews the new commit before merging.
+
+A `ref` (branch/tag) alone is **not** accepted for external skills, because a branch is mutable — pointing at `main` would let post-review changes flow straight to users. The `sha` is the audited, immutable anchor.
 
 ## Path B — contribute the skill inline
 

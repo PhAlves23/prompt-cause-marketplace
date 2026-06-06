@@ -48,6 +48,13 @@ jobs:
                   import os
                   if not os.path.isdir(src.lstrip("./")):
                       print(f"FAIL [{n}] inline source path not found: {src}"); fail = True
+              # SECURITY: external (non-inline) sources MUST be pinned to a 40-char commit sha
+              if isinstance(src, dict):
+                  sha = src.get("sha", "")
+                  if not re.fullmatch(r"[0-9a-f]{40}", sha):
+                      print(f"FAIL [{n}] external source must be pinned to a full commit sha (got {sha!r}). "
+                            f"A branch/tag ref alone is mutable — see CONTRIBUTING 'Versioning & security'.")
+                      fail = True
           print(f"checked {len(mp['plugins'])} plugin(s)")
           sys.exit(1 if fail else 0)
           PY
