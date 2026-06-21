@@ -7,6 +7,17 @@
   },
   "plugins": [
     {
+      "name": "hermes-tweet",
+      "description": "Use Xquik from Hermes Agent for X/Twitter search, social listening, publishing, replies, DMs, monitors, draws, media, and approval-gated actions.",
+      "source": {
+        "source": "github",
+        "repo": "Xquik-dev/hermes-tweet",
+        "sha": "7da05d59c02f040227589171befdeee811d22401"
+      },
+      "category": "other",
+      "homepage": "https://github.com/Xquik-dev/hermes-tweet"
+    },
+    {
       "name": "prompt-engineering",
       "description": "Optimizes and rewrites prompts using proven prompt engineering techniques: draft diagnosis, canonical structure, technique selection by task type and target model.",
       "source": {
