@@ -11,7 +11,7 @@ Add one marketplace, install any skill.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Validate](https://github.com/PhAlves23/promptcause-marketplace/actions/workflows/validate.yml/badge.svg)](https://github.com/PhAlves23/promptcause-marketplace/actions/workflows/validate.yml)
-[![Skills](https://img.shields.io/badge/skills-1-0E4A35.svg)](#catalog)
+[![Skills](https://img.shields.io/badge/skills-2-0E4A35.svg)](#catalog)
 [![Security: sha-pinned](https://img.shields.io/badge/security-sha--pinned-C25B36.svg)](SECURITY.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -70,6 +70,7 @@ copilot plugin install <skill-name>@promptcause
 
 | Skill | What it does | Category | Repo |
 |-------|--------------|----------|------|
+| **hermes-tweet** | Adds Hermes Agent workflows for X/Twitter search, monitoring, trends, publishing, replies, DMs, draws, media, and approval-gated account actions through Xquik. | other | [hermes-tweet](https://github.com/Xquik-dev/hermes-tweet) |
 | **prompt-engineering** | Rewrites a raw draft into a production-grade prompt, with a changelog of what changed and why. Grounded in primary sources (Anthropic, OpenAI, Google, *The Prompt Report*). | productivity | [prompt-engineering-skill](https://github.com/PhAlves23/prompt-engineering-skill) |
 
 _Want your skill here? See [Contributing](#contributing-a-skill)._

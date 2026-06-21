@@ -10,6 +10,7 @@ skills — each listed skill keeps its own changelog in its own repo.
 ## [Unreleased]
 
 ### Added
+- Added Hermes Tweet as a pinned external skill for Hermes Agent X/Twitter workflows.
 - Initial Prompt Cause marketplace with the `prompt-engineering` skill listed via a pinned `git-subdir` source.
 - `skill-template/` — a ready-to-copy layout for new skills.
 - Security model: external skills must be pinned to a reviewed commit `sha`; the `validate` CI workflow rejects unpinned external sources.
